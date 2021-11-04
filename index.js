@@ -4,7 +4,10 @@ const Client = require('./client/Client');
 // const config = require('./config.json');
 const {Player} = require('discord-player');
 
-const keepAlive = require('./server')
+
+const express = require("express")
+
+const server = express()
 
 const { Server } = require('https');
 
@@ -101,6 +104,8 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-keepAlive()
+server.connect({
+  port: process.env.PORT || 3000 
+});
 
 client.login(process.env.TOKEN);
