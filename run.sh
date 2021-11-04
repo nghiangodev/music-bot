@@ -1,3 +1,3 @@
-npm star
+npm start
 
 node index.js
