@@ -28,7 +28,7 @@ First, make sure you have all the required tools installed on your local machine
 
 ```bash
 # Clone the repository
-git clone https://github.com/TannerGabriel/discord-bot.git
+git clone https://github.com/ngovotrongnghia/darth-music-bot
 
 # Enter into the directory
 cd discord-bot/
