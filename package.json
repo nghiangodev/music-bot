@@ -1,0 +1,32 @@
+{
+  "name": "music-bot",
+  "version": "1.0.0",
+  "repository": "https://github.com/ngovotrongnghia/darth-music-bot",
+  "description": "A simple discord music bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --write \"**/*.js\""
+  },
+  "keywords": [
+    "discord",
+    "music",
+    "bot"
+  ],
+  "author": "Gabriel Tanner",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/opus": "^0.6.0",
+    "discord-player": "^5.1.0",
+    "discord.js": "^13.1.0",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^4.4.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "libopus.js": "^0.0.1",
+    "opusscript": "^0.0.8",
+    "ytdl-core": "^4.9.1"
+  },
+  "devDependencies": {
+    "prettier": "2.4.1"
+  }
+}
