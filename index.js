@@ -5,7 +5,7 @@ const Client = require('./client/Client');
 const {Player} = require('discord-player');
 
 
-const express = require("express")
+const express = require('express')
 
 const server = express()
 
