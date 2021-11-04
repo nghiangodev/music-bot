@@ -46,9 +46,9 @@ player.on('queueEnd', queue => {
   queue.metadata.send('✅✅ | Darth: Queue finished!');
 });
 
-// client.once('ready', async () => {
-//   console.log('Ready!');
-// });
+client.once('ready', async () => {
+  console.log('Ready!');
+});
 
 client.on('ready', function() {
   client.user.setActivity(process.env.activity, { type: process.env.activityType });
