@@ -1,3 +1,3 @@
 npm start
 
-node index.js
+npm script
