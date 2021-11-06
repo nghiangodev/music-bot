@@ -41,7 +41,7 @@ player.on('connectionError', (queue, error) => {
 
 player.on('trackStart', (queue, track) => {
 
-    queue.metadata.send(new MessageEmbed.setTitle(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`)
+    queue.metadata.send(MessageEmbed.setTitle(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`)
     .addFields([
       {inline: true, name: "Author", value: track.author},
       {inline: true, name: "Length", value: track.duration},
