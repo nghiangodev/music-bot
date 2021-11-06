@@ -74,8 +74,6 @@ var e = document.createElement('div');
 e.innerHTML = html;
 
   queue.metadata.send(element.appendChild(e.firstChild));
-  );
-
   
 });
 
