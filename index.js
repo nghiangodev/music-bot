@@ -45,7 +45,8 @@ player.on('trackStart', (queue, track) => {
   console.log(queue.connection)
  console.log(queue)
  console.log(track)
-  let html = <section class="music-player">
+
+  let html = `<section class="music-player">
     <header class="music-player--banner"></header>
     <main class="music-player--main">
         <div class="music-player--progress">
@@ -66,7 +67,7 @@ player.on('trackStart', (queue, track) => {
             </div>
         </div>
     </main>
-</section>
+</section>`
 
   queue.metadata.send(html);
 });
