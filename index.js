@@ -41,6 +41,7 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
+  console.log(queue.connection.channel)
   console.log(queue.connection)
  console.log(queue)
  console.log(track)
