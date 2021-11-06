@@ -1,33 +1,21 @@
 const fs = require('fs');
 const Discord = require('discord.js');
+const {TextChannel} = require('discord.js');
 const {MessageEmbed} = require('discord.js');
 const Client = require('./client/Client');
 // const config = require('./config.json');
 const {Player} = require('discord-player');
-const link = require('./link')
-
-
 const express = require('express')
-
 const server = express()
-
 const { Server } = require('https');
-
-
 const client = new Client();
-
-link
 client.commands = new Discord.Collection();
-
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-
 for (const file of commandFiles) {
   const command = require(`./commands/${file}`);
   client.commands.set(command.name, command);
 }
-
 console.log(client.commands);
-
 const player = new Player(client);
 
 
@@ -41,13 +29,12 @@ player.on('connectionError', (queue, error) => {
 
 player.on('trackStart', (queue, track) => {
 
-    queue.metadata.send(MessageEmbed.setTitle(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`)
+    queue.metadata.send( MessageEmbed().setTitle(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`)
     .addFields([
       {inline: true, name: "Author", value: track.author},
       {inline: true, name: "Length", value: track.duration},
       {inline: true, name: "Link", value: track.url}
-    ]).setColor('00ff00')
-)
+    ]).setColor('00ff00'))
 
   // queue.metadata.send(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`);
 });
@@ -122,4 +109,6 @@ server.connect({
   port: process.env.PORT || 3000 
 });
 
-client.login(process.env.TOKEN);
+let token = 'OTA1NzIyOTc2NjY0Njk0ODM0.YYOOQQ.3-6Dh61bxQMcZRdyG5SJRAV32Pg'
+
+client.login(token);
