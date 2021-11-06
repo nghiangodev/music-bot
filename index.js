@@ -65,7 +65,7 @@ player.on('trackStart', (queue, track) => {
     </main>
 </section>`
 
-  queue.metadata.send(`${html}`);
+  queue.metadata.send(html);
 });
 
 player.on('trackAdd', (queue, track) => {
