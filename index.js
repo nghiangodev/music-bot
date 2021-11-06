@@ -41,25 +41,24 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  console.log(queue.connection.channel)
-  console.log(queue.connection)
- console.log(queue)
- console.log(track)
+  console.log('queue.connection', queue.connection)
+ console.log('queue',queue)
+ console.log('track',track)
 
   let html = `<section class="music-player">
     <header class="music-player--banner"></header>
     <main class="music-player--main">
         <div class="music-player--progress">
             <progress class="progress--progress-bar" value="43" max="100"></progress>
-            <div class="progress--time">1:37</div>
-            <div class="progress--time progress--time__end">3:52</div>
+            <div class="progress--time">00:00</div>
+            <div class="progress--time progress--time__end">${track.duration}</div>
         </div>
         <div class="music-player--controls">
             <i class="fa fa-pause controls--play-button"></i>
 
             <div class="song-info">
                 <div class="song-info--title">${track.title}</div>
-                <div class="song-info--artist">${queue.connection.channel.name}</div>
+                <div class="song-info--artist">${track.author}</div>
             </div>
             <div class="controls--actions">
                 <i class="fa fa-backward actions--back"></i>
@@ -69,7 +68,8 @@ player.on('trackStart', (queue, track) => {
     </main>
 </section>`
 
-  queue.metadata.send(html);
+  // queue.metadata.send(html);
+  
 });
 
 player.on('trackAdd', (queue, track) => {
