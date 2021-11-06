@@ -1,5 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
+const {TextChannel} = require('discord.js');
 const Client = require('./client/Client');
 // const config = require('./config.json');
 const {Player} = require('discord-player');
@@ -63,12 +64,15 @@ player.on('trackStart', (queue, track) => {
     </main>
 </section>`
 
-  queue.metadata.send(
-    `${track.author}`,
-    `${track.author}`,
-    `${track.author}`
-  );
-  
+  TextChannel.send(
+    new Discord.MessageEmbed().setTitle(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`)
+    .addFields([
+      {inline: true, name: "Author", value: track.author},
+      {inline: true, name: "Length", value: track.duration},
+      {inline: true, name: "Link", value: track.url}
+    ]).setColor('00ff00')
+)
+
   // queue.metadata.send(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`);
 });
 
