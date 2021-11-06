@@ -1,7 +1,5 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const {TextChannel} = require('discord.js');
-const {MessageEmbed} = require('discord.js');
 const Client = require('./client/Client');
 // const config = require('./config.json');
 const {Player} = require('discord-player');
@@ -28,15 +26,7 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-
-    queue.metadata.send( MessageEmbed().setTitle(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`)
-    .addFields([
-      {inline: true, name: "Author", value: track.author},
-      {inline: true, name: "Length", value: track.duration},
-      {inline: true, name: "Link", value: track.url}
-    ]).setColor('00ff00'))
-
-  // queue.metadata.send(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`);
+  queue.metadata.send(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`);
 });
 
 player.on('trackAdd', (queue, track) => {
@@ -109,6 +99,4 @@ server.connect({
   port: process.env.PORT || 3000 
 });
 
-let token = 'OTA1NzIyOTc2NjY0Njk0ODM0.YYOOQQ.3-6Dh61bxQMcZRdyG5SJRAV32Pg'
-
-client.login(token);
+client.login(process.env.TOKEN);
