@@ -65,9 +65,11 @@ player.on('trackStart', (queue, track) => {
     </main>
 </section>`
 
-queue.connection.channel.message.send(html)
-
-  // queue.metadata.send([]);
+  queue.metadata.send([
+    `${track.author}`,
+    `${track.author}`,
+    `${track.author}`
+  ]);
   
 });
 
