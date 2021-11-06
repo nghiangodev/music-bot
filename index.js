@@ -3,7 +3,6 @@ const Discord = require('discord.js');
 const Client = require('./client/Client');
 // const config = require('./config.json');
 const {Player} = require('discord-player');
-
 const link = require('./link')
 
 
@@ -17,8 +16,6 @@ const { Server } = require('https');
 const client = new Client();
 
 link
-console.log(link)
-
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -31,6 +28,7 @@ for (const file of commandFiles) {
 console.log(client.commands);
 
 const player = new Player(client);
+
 
 player.on('error', (queue, error) => {
   console.log(`Darth: [${queue.guild.name}] Error emitted from the queue: ${error.message}`);
@@ -71,6 +69,7 @@ player.on('trackStart', (queue, track) => {
     `${track.author}`
   );
   
+  // queue.metadata.send(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`);
 });
 
 player.on('trackAdd', (queue, track) => {
