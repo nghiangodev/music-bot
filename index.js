@@ -73,11 +73,8 @@ console.log('queue.connection', queue.connection)
 var e = document.createElement('div');
 e.innerHTML = html;
 
-while(e.firstChild) {
-  queue.metadata.send(    element.appendChild(e.firstChild);
+  queue.metadata.send(element.appendChild(e.firstChild));
   );
-
-}
 
   
 });
