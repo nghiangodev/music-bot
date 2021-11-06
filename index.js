@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const {TextChannel} = require('discord.js');
+const {MessageEmbed} = require('discord.js');
 const Client = require('./client/Client');
 // const config = require('./config.json');
 const {Player} = require('discord-player');
@@ -41,31 +41,7 @@ player.on('connectionError', (queue, error) => {
 
 player.on('trackStart', (queue, track) => {
 
-  let html = `<section class="music-player">
-    <header class="music-player--banner"></header>
-    <main class="music-player--main">
-        <div class="music-player--progress">
-            <progress class="progress--progress-bar" value="43" max="100"></progress>
-            <div class="progress--time">00:00</div>
-            <div class="progress--time progress--time__end">${track.duration}</div>
-        </div>
-        <div class="music-player--controls">
-            <i class="fa fa-pause controls--play-button"></i>
-
-            <div class="song-info">
-                <div class="song-info--title">${track.title}</div>
-                <div class="song-info--artist">${track.author}</div>
-            </div>
-            <div class="controls--actions">
-                <i class="fa fa-backward actions--back"></i>
-                <i class="fa fa-forward actions--forward"></i>
-            </div>
-        </div>
-    </main>
-</section>`
-
-  TextChannel.send(
-    new Discord.MessageEmbed().setTitle(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`)
+    queue.metadata.send(new MessageEmbed.setTitle(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`)
     .addFields([
       {inline: true, name: "Author", value: track.author},
       {inline: true, name: "Length", value: track.duration},
