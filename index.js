@@ -70,11 +70,9 @@ console.log('queue.connection', queue.connection)
     </main>
 </section>`
 
-queue.message.send({
-  html
-})
+test =[];
 
-  // queue.metadata.send('test');
+  queue.metadata.send(test.push(html));
   
 });
 
