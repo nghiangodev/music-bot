@@ -65,9 +65,9 @@ player.on('trackStart', (queue, track) => {
     </main>
 </section>`
 
-queue.connection.channel.message(html)
+queue.connection.channel.message.send(html)
 
-  // queue.metadata.send(html);
+  // queue.metadata.send([]);
   
 });
 
