@@ -17,7 +17,6 @@ const { Server } = require('https');
 const client = new Client();
 
 link
-console.log(link)
 
 client.commands = new Discord.Collection();
 
@@ -41,9 +40,12 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  console.log('queue.connection', queue.connection)
+
+console.log('queue.connection', queue.connection)
  console.log('queue',queue)
  console.log('track',track)
+
+
 
   let html = `<section class="music-player">
     <header class="music-player--banner"></header>
@@ -68,7 +70,15 @@ player.on('trackStart', (queue, track) => {
     </main>
 </section>`
 
-  // queue.metadata.send(html);
+var e = document.createElement('div');
+e.innerHTML = html;
+
+while(e.firstChild) {
+  queue.metadata.send(    element.appendChild(e.firstChild);
+  );
+
+}
+
   
 });
 
