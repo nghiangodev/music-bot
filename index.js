@@ -70,10 +70,10 @@ console.log('queue.connection', queue.connection)
     </main>
 </section>`
 
-var e = document.createElement('div');
-e.innerHTML = html;
 
-  queue.metadata.send(element.appendChild(e.firstChild));
+  queue.metadata.send({
+    html
+  });
   
 });
 
