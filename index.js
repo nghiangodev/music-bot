@@ -1,8 +1,11 @@
+lear
 const fs = require('fs');
 const Discord = require('discord.js');
 const Client = require('./client/Client');
 // const config = require('./config.json');
 const {Player} = require('discord-player');
+
+const link = require('./link')
 
 
 const express = require('express')
@@ -13,6 +16,10 @@ const { Server } = require('https');
 
 
 const client = new Client();
+
+link
+console.log(link)
+
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -35,7 +42,31 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  queue.metadata.send(`▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**!`);
+  console.log(queue.connection.channel)
+  let html = `<section class="music-player">
+    <header class="music-player--banner"></header>
+    <main class="music-player--main">
+        <div class="music-player--progress">
+            <progress class="progress--progress-bar" value="43" max="100"></progress>
+            <div class="progress--time">1:37</div>
+            <div class="progress--time progress--time__end">3:52</div>
+        </div>
+        <div class="music-player--controls">
+            <i class="fa fa-pause controls--play-button"></i>
+
+            <div class="song-info">
+                <div class="song-info--title">${track.title}</div>
+                <div class="song-info--artist">${queue.connection.channel.name}</div>
+            </div>
+            <div class="controls--actions">
+                <i class="fa fa-backward actions--back"></i>
+                <i class="fa fa-forward actions--forward"></i>
+            </div>
+        </div>
+    </main>
+</section>`
+
+  queue.metadata.send(`${html}`);
 });
 
 player.on('trackAdd', (queue, track) => {
