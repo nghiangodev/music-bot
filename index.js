@@ -26,7 +26,7 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  let str = "``` > 🎶 **${track.title} - ${track.author}** ```"
+  let str = ``` > 🎶 **${track.title} - ${track.author}** ```
   queue.metadata.send(` > 🎶 **${track.title} - ${track.author}** 
   > 🎶 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
   > 🎶 ${str}
