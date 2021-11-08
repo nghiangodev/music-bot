@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const Client = require('./client/Client');
-// const config = require('./config.json');
+const { MessageActionRow, MessageButton } = require('discord.js');
 const {Player} = require('discord-player');
 const express = require('express')
 const server = express()
@@ -28,8 +28,25 @@ player.on('connectionError', (queue, error) => {
 player.on('trackStart', (queue, track) => {
   queue.metadata.send(` > **${track.title}** 
   > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
-  > **Requestor**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Author**
-  > ${track.requestedBy.username}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.author}`);
+  > **Requestor**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Author**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Viewer*
+  > ${track.requestedBy.username}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.author}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.views}`
+  > $);
+
+  client.on('interactionCreate', async interaction => {
+    if (!interaction.isCommand()) return;
+  
+    if (interaction.commandName === 'ping') {
+      const row = new MessageActionRow()
+        .addComponents(
+          new MessageButton()
+            .setCustomId('primary')
+            .setLabel('Primary')
+            .setStyle('PRIMARY'),
+        );
+  
+      await interaction.reply({ content: 'Pong!', components: [row] });
+    }
+  });
 
   console.log('track',track)
 console.log('queue',queue)
