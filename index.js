@@ -32,8 +32,6 @@ player.on('trackStart', (queue, track) => {
 
 });
 
-buttonClient.send("There will be a button below this message", { channel: "CHANNEL ID", buttons: [ [button1] ]})
-
 player.on('trackAdd', (queue, track) => {
   queue.metadata.send(` > Track **${track.title}** queued!`);
 });
