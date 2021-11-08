@@ -26,8 +26,10 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  queue.metadata.send(` > ▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**! 
-  > ▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**! 
+  console.log('track',track)
+  console.log('queue.connection.channel',queue.connection.channel)
+  queue.metadata.send(` > ▶ ** Darth playing:${track.title} - ${track.author}** 
+  > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **${track.duration}**! 
   > ▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**! `);
 });
 
