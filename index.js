@@ -1,6 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const Client = require('./client/Client');
+// const config = require('./config.json');
 const {Player} = require('discord-player');
 const express = require('express')
 const server = express()
@@ -25,7 +26,8 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  queue.metadata.send(` > **${track.title}** 
+  let btn = 'https://cdn.discordapp.com/emojis/803289155579674644.png?size=44'
+  queue.metadata.channel.send(` > **${track.title}** 
   > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
   > **Requestor** > **Author** > **Viewer*
   > ${track.requestedBy.username} > ${track.author} > ${track.views}`);
