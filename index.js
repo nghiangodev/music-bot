@@ -24,10 +24,9 @@ player.on('error', (queue, error) => {
 player.on('connectionError', (queue, error) => {
   console.log(`Darth: [${queue.guild.name}] Error emitted from the connection: ${error.message}`);
 });
-
-player.on('trackStart', (queue, track) => {
-  console.log('track',track)
+console.log('track',track)
   console.log('queue.connection.channel',queue.connection.channel)
+player.on('trackStart', (queue, track) => {
   queue.metadata.send(` > ▶ ** Darth playing:${track.title} - ${track.author}** 
   > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **${track.duration}**! 
   > ▶ | Darth: Started playing: **${track.title}** in **${queue.connection.channel.name}**! `);
