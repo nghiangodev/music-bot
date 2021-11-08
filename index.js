@@ -26,11 +26,11 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  let str = ``` > 🎶 **${track.title} - ${track.author}** ```
-  queue.metadata.send(` > 🎶 **${track.title} - ${track.author}** 
-  > 🎶 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
-  > 🎶 ${str}
-  > 🎶 `);
+  queue.metadata.send(` > **${track.title}** 
+  > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
+  > Requestor                      Author
+  > ${track.requestedBy.username}                      ${track.author}
+  > ${track.requestedBy.avatar} ${track.requestedBy.thumbnail} `);
 
   console.log('track',track)
 console.log('queue',queue)
