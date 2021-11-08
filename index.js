@@ -28,16 +28,15 @@ player.on('connectionError', (queue, error) => {
 player.on('trackStart', (queue, track) => {
   queue.metadata.send(` > **${track.title}** 
   > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
-  > Requestor                      Author
-  > ${track.requestedBy.username}                      ${track.author}
-  > ${track.requestedBy.avatar} ${track.requestedBy.thumbnail} `);
+  > **Requestor**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Author**
+  > ${track.requestedBy.username}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.author}`);
 
   console.log('track',track)
 console.log('queue',queue)
 });
 
 player.on('trackAdd', (queue, track) => {
-  queue.metadata.send(`🎶🎶 | Darth: Track **${track.title}** queued!`);
+  queue.metadata.send(` > Track **${track.title}** queued!`);
 });
 
 player.on('botDisconnect', queue => {
