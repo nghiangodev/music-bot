@@ -27,10 +27,10 @@ player.on('connectionError', (queue, error) => {
 
 player.on('trackStart', (queue, track) => {
   let str = "```yaml test test test test```"
-  queue.metadata.send(` > ▶ **${track.title} - ${track.author}** 
-  > ▶ ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
-  > ▶ str
-  > ▶ `);
+  queue.metadata.send(` > 🎶 **${track.title} - ${track.author}** 
+  > 🎶 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
+  > 🎶 ${str}
+  > 🎶 `);
 
   console.log('track',track)
 console.log('queue',queue)
