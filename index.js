@@ -31,23 +31,18 @@ player.on('trackStart', (queue, track) => {
   > **Requestor** 
   > ${track.requestedBy.username} `);
 
-  client.on('interactionCreate', async interaction => {
+  if (interaction.commandName === 'play') {
+    const row = new MessageActionRow()
+      .addComponents(
+        new MessageButton()
+          .setCustomId('primary')
+          .setLabel('Primary')
+          .setStyle('PRIMARY'),
+      );
 
-    console.log(interaction)
-    if (!interaction.isCommand()) return;
-  
-    if (interaction.commandName === 'ping') {
-      const row = new MessageActionRow()
-        .addComponents(
-          new MessageButton()
-            .setCustomId('primary')
-            .setLabel('Primary')
-            .setStyle('PRIMARY'),
-        );
-  
-      await interaction.reply({ content: 'Pong!', components: [row] });
-    }
-  });
+    await interaction.reply({ content: 'Pong!', components: [row] });
+  }
+    
 
 });
 
