@@ -31,7 +31,6 @@ player.on('trackStart', (queue, track) => {
   > **Requestor** 
   > ${track.requestedBy.username} `);
 
-  if (interaction.commandName === 'play') {
     const row = new MessageActionRow()
       .addComponents(
         new MessageButton()
@@ -40,8 +39,7 @@ player.on('trackStart', (queue, track) => {
           .setStyle('PRIMARY'),
       );
 
-    interaction.reply({ content: 'Pong!', components: [row] });
-  }
+    player.reply({ content: 'Pong!', components: [row] });
     
 
 });
