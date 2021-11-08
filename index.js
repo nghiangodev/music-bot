@@ -26,10 +26,10 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  queue.metadata.send(` > **${track.title}** 
-  > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
-  > **Requestor**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Author**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Viewer*
-  > ${track.requestedBy.username}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.author}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.views}`);
+  // queue.metadata.send(` > **${track.title}** 
+  // > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
+  // > **Requestor**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Author**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Viewer*
+  // > ${track.requestedBy.username}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.author}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.views}`);
 
   client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return;
