@@ -31,16 +31,13 @@ player.on('trackStart', (queue, track) => {
   > **Requestor** 
   > ${track.requestedBy.username} `);
 
-    const row = new MessageActionRow()
+   new MessageActionRow()
       .addComponents(
         new MessageButton()
           .setCustomId('primary')
           .setLabel('Primary')
           .setStyle('PRIMARY'),
       );
-
-    player.reply({ content: 'Pong!', components: [row] });
-    
 
 });
 
