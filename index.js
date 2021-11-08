@@ -30,7 +30,7 @@ player.on('trackStart', (queue, track) => {
   > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
   > **Requestor**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Author**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Viewer*
   > ${track.requestedBy.username}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.author}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.views}`
-  > $);
+  > );
 
   client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return;
