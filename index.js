@@ -38,15 +38,15 @@ player.on('trackAdd', (queue, track) => {
 });
 
 player.on('botDisconnect', queue => {
-  queue.metadata.send('❌❌ | Darth was manually disconnected from the voice channel, clearing queue!');
+  queue.metadata.send('> Darth was manually disconnected from the voice channel, clearing queue!');
 });
 
 player.on('channelEmpty', queue => {
-  queue.metadata.send('❌❌ | Nobody is in the voice channel, Darth is leaving...');
+  queue.metadata.send('> Nobody is in the voice channel, Darth is leaving...');
 });
 
 player.on('queueEnd', queue => {
-  queue.metadata.send('✅✅ | Darth: Queue finished!');
+  queue.metadata.send('> Darth: Queue finished!');
 });
 
 client.once('ready', async () => {
@@ -58,11 +58,11 @@ client.on('ready', function() {
 });
 
 client.once('reconnecting', () => {
-  console.log('Darth: Reconnecting!');
+  console.log('> Darth: Reconnecting!');
 });
 
 client.once('disconnect', () => {
-  console.log('Darth: Disconnect!');
+  console.log('> Darth: Disconnect!');
 });
 
 client.on('messageCreate', async message => {
@@ -73,10 +73,10 @@ client.on('messageCreate', async message => {
     await message.guild.commands
       .set(client.commands)
       .then(() => {
-        message.reply('Darth: Deployed!');
+        message.reply('> Darth: Deployed!');
       })
       .catch(err => {
-        message.reply('Darth: Could not deploy commands! Make sure the bot has the application.commands permission!');
+        message.reply('> Darth: Could not deploy commands! Make sure the bot has the application.commands permission!');
         console.error(err);
       });
   }
@@ -94,7 +94,7 @@ client.on('interactionCreate', async interaction => {
   } catch (error) {
     console.error(error);
     interaction.followUp({
-      content: 'Darth: There was an error trying to execute that command!',
+      content: '> Darth: There was an error trying to execute that command!',
     });
   }
 });
