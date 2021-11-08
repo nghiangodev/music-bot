@@ -40,7 +40,7 @@ player.on('trackStart', (queue, track) => {
           .setStyle('PRIMARY'),
       );
 
-    await interaction.reply({ content: 'Pong!', components: [row] });
+    interaction.reply({ content: 'Pong!', components: [row] });
   }
     
 
