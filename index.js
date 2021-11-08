@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const Client = require('./client/Client');
-// const config = require('./config.json');
+const { MessageActionRow, MessageButton } = require('discord.js');
 const {Player} = require('discord-player');
 const express = require('express')
 const server = express()
@@ -30,6 +30,24 @@ player.on('trackStart', (queue, track) => {
   > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
   > **Requestor** 
   > ${track.requestedBy.username} `);
+
+  client.on('interactionCreate', async interaction => {
+
+    console.log(interaction)
+    if (!interaction.isCommand()) return;
+  
+    if (interaction.commandName === 'ping') {
+      const row = new MessageActionRow()
+        .addComponents(
+          new MessageButton()
+            .setCustomId('primary')
+            .setLabel('Primary')
+            .setStyle('PRIMARY'),
+        );
+  
+      await interaction.reply({ content: 'Pong!', components: [row] });
+    }
+  });
 
 });
 
