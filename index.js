@@ -1,7 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const Client = require('./client/Client');
-const { MessageActionRow, MessageButton } = require('discord.js');
 const {Player} = require('discord-player');
 const express = require('express')
 const server = express()
@@ -26,30 +25,14 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  // queue.metadata.send(` > **${track.title}** 
-  // > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
-  // > **Requestor**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Author**▬▬▬▬▬▬▬▬▬▬▬▬▬▬**Viewer*
-  // > ${track.requestedBy.username}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.author}▬▬▬▬▬▬▬▬▬▬▬▬▬▬${track.views}`);
+  queue.metadata.send(` > **${track.title}** 
+  > ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ **00:00:00** - **00:0${track.duration}**! 
+  > **Requestor** > **Author** > **Viewer*
+  > ${track.requestedBy.username} > ${track.author} > ${track.views}`);
 
-  client.on('interactionCreate', async interaction => {
-    if (!interaction.isCommand()) return;
-  
-    if (interaction.commandName === 'ping') {
-      const row = new MessageActionRow()
-        .addComponents(
-          // ...
-        );
-  
-      const embed = new MessageEmbed()
-        .setColor('#0099ff')
-        .setTitle('Some title')
-        .setURL('https://discord.js.org')
-        .setDescription('Some description here');
-  
-      await interaction.reply({ content: 'Pong!', ephemeral: true, embeds: [embed], components: [row] });
-    }
-  });
 });
+
+buttonClient.send("There will be a button below this message", { channel: "CHANNEL ID", buttons: [ [button1] ]})
 
 player.on('trackAdd', (queue, track) => {
   queue.metadata.send(` > Track **${track.title}** queued!`);
