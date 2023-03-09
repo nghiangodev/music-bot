@@ -4,6 +4,9 @@ A simple discord bot that helps you manage your server by providing useful comma
 
 You can find the tutorial about building a discord music bot [here](https://gabrieltanner.org/blog/dicord-music-bot). 
 
+[<img src="https://thumbs.dreamstime.com/b/cat-glasses-manager-doing-some-work-computer-isolated-black-cat-glasses-manager-doing-some-work-110906230.jpg">](http://google.com.au/)
+
+
 ## Table of content
 
 * [Requirements](#requirements)
